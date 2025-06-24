@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Name App</title>
+</head>
+<body>
+  <h1>Welcome to Random Name App</h1>
+  <button id="pullBtn">Pull Random Name</button>
+  <p id="result"></p>
+
+  <script>
+    document.getElementById("pullBtn").addEventListener("click", function() {
+      fetch("/random")
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("result").innerText = data.name;
+        });
+    });
+  </script>
+</body>
+</html>
